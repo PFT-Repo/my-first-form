@@ -1,0 +1,32 @@
+<div class="container-fluid text-center align-center justify-content-center">
+    <div class="row row-cols-2 w-100">
+        <h1 class="col-10 ps-5">Reactive Tax Relief Form</h1>
+        <button id="langSel" class="col-2 btn btn-info" (click)="setAndorraf()">ES</button>
+    </div>
+    <hr>
+    <form [formGroup]="form">
+        <div class="row text-center w-100">
+            <label for="income">Income:</label>
+            <input type="number" id="income" formControlName="income">
+        </div>
+        <div class="row w-100">
+            <label for="personalplan">Personal Pension Plan:</label>
+            <input type="number" id="personalplan" formControlName="personalplan">
+        </div>
+        <div class="row w-100">
+            <label for="enterpriseplan">Enterprise Pension Plan:</label>
+            <input type="number" id="enterpriseplan" formControlName="enterpriseplan">
+        </div>
+    </form>
+    <div class="row">
+        <div *ngIf="setAndorra === false">
+            <button (click)="getResult()">Get Total</button>
+        </div>
+        <div *ngIf="setAndorra">
+            <button (click)="getAResult()">Get Total (Andorra Style)</button>
+        </div>
+    </div>
+    <div *ngIf="total>-1">
+        <h2>Your Tax Relief: {{ total }}</h2>
+    </div>
+</div>

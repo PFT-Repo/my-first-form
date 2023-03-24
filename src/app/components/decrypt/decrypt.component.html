@@ -1,0 +1,9 @@
+<div class="container text-center d-flex">
+    <label for="text">Enter text to decode:</label>
+    <input class="my-3" type="text" id="text" [(ngModel)]="text">
+    <button class="mt-2" (click)="encrypt()">decode</button>
+    <div *ngIf="hash.length>1">
+        <p>Decoded text:</p>
+        <pre>{{ hash }}</pre>
+    </div>
+</div>

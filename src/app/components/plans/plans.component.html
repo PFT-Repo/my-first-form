@@ -1,0 +1,29 @@
+<div class="container text-center ">
+    <div class="row row-cols-2 w-100">
+        <h1 class="col-10 ps-5">Tax Relief Form</h1>
+        <button id="langSel" class="col-2" (click)="setAndorraf()">ES</button>
+    </div>
+    <hr>
+    <form>
+        <div class="row w-100"><label for="text">Disponible Base:</label>
+            <input type="number" id="text" [(ngModel)]="income" [ngModelOptions]="{standalone: true}" min="0">
+        </div>
+        <div class="row w-100"> <label for="text">Personal Pension Plan:</label>
+            <input type="number" id="text" [(ngModel)]="personalplan" [ngModelOptions]="{standalone: true}" min="0" max="1500">
+        </div>
+        <div class="row w-100"> <label for="text">Enterprise Pension Plan:</label>
+            <input type="number" id="text" [(ngModel)]="enterpriseplan" [ngModelOptions]="{standalone: true}" min="0" max="8500">
+        </div>
+    </form>
+    <div class="row">
+        <div *ngIf="setAndorra === false">
+            <button (click)="getResult()">Get Total</button>
+        </div>
+        <div *ngIf="setAndorra">
+            <button (click)="getAResult()">Get Total (Andorra Style)</button>
+        </div>
+    </div>
+    <div *ngIf="result > -1">
+        <h3>Your Relief is: {{result}} &euro;</h3>
+    </div>
+</div>
